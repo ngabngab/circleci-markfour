@@ -3,16 +3,7 @@ import CopyToClipboard from 'react-copy-to-clipboard'
 
 export default class ShortenComponent extends Component {
   state = {
-      shortUrl : this.props.shortUrl,
       copied : false
-  }
-
-
-  onChangeHandler = (e) => {
-      this.setState({
-            shortUrl : e.target.value,
-            copied : false
-      })
   }
 
 
@@ -29,13 +20,13 @@ export default class ShortenComponent extends Component {
           <div className="d-flex justify-content-center flex-column">
               
             <div className="d-flex p-4 justify-content-center">
-                    <div className="form-group m-0">
-                        <input type="text" value={ this.state.shortUrl } className="form-control"  onChange={ (e) => this.onChangeHandler(e) }/>
+                    <div className="form-group m-0 align-self-center">
+                        <span>{ this.props.shortUrl }</span>
                     </div>
-                    <CopyToClipboard text={ this.state.shortUrl } onCopy={(e) => this.onCopy(e)}>
+                    <CopyToClipboard text={ this.props.shortUrl } onCopy={(e) => this.onCopy(e)}>
                         <button className="btn btn-primary mr-1 ml-4">Copy</button>
                     </CopyToClipboard>
-                    <a target="_blank" href={ this.state.shortUrl } className="btn btn-secondary mx-1">Go</a>
+                    <a target="_blank" href={ this.props.shortUrl } className="btn btn-secondary mx-1">Go</a>
             </div>
             <div className="align-self-center">
             {
