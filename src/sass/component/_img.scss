@@ -1,0 +1,16 @@
+.avatar {
+    &-container {
+        img {
+            width: 32px;
+            height: 32px;
+        }
+    }
+}
+
+.logo {
+    &-container {
+        img{
+            width: 100%;
+        }
+    }
+}
