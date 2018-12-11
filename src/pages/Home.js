@@ -1,12 +1,29 @@
 import React, { Component } from 'react'
 import logo from '../logo.svg';
+import Generator from '../utility/ShortGenerator'
 
 class Home extends Component {
+    state = {
+        url: ''
+    }
+
     constructor(props) {
         super(props)
-        console.log(props)
+        this._generator = new Generator()
     }
-    
+
+    onGenerateBtnClicked = () => {
+        this.save(this.state.url, this._generator.generate())
+    }
+
+    onTextChanged = ({ target: { value } }) => {
+        this.setState({ url: value })
+    }
+
+    save = (url, shorturl) => {
+        // TODO save to firebase
+    }
+
     render() {
         return (
             <div>
