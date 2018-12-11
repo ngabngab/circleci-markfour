@@ -1,7 +1,12 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
+import React, { Component, Fragment, Suspense } from 'react';
+
 import './App.css';
 import Generator from './utility/ShortGenerator'
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import Home from './pages/Home'
+import Redirector from './pages/Redirector'
+
+const HomePage = () => <Home />
 
 class App extends Component {
   state = {
@@ -17,32 +22,27 @@ class App extends Component {
 
   }
 
-  onTextChanged = ({target: {value}}) => {
-    this.setState({url: value})
+  onTextChanged = ({ target: { value } }) => {
+    this.setState({ url: value })
   }
 
   save = (url, shorturl) => {
-    
+
   }
-  
+
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React Bengs
-          </a>
-        </header>
-      </div>
+      <Router>
+        <Fragment>
+          <Suspense fallback={<div></div>}>
+            <Switch>
+              <Route exact path="/" component={HomePage} />
+              <Redirector exact path="/:shortlink" />
+            </Switch>
+          </Suspense>
+        </Fragment>
+
+      </Router>
     );
   }
 }
