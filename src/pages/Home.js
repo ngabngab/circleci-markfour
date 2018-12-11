@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
-import logo from '../logo.svg';
 import Generator from '../utility/ShortGenerator'
 import Header from '../components/HeaderComponent'
 import Input from '../components/InputComponent'
 
 import {addItem} from '../firebase_functions'
+import ShortenComponent from '../components/ShortenComponent';
 
 class Home extends Component {
     state = {
@@ -40,7 +40,8 @@ class Home extends Component {
                 <Header />
                 <Input onChange={this.onInputChanged} value={this.state.url} onSubmit={this.onGenerateBtnClicked} />
                 {
-                    this.state.generated && <code><a href={this.state.shortUrl}>{this.state.shortUrl}</a></code>
+                    this.state.generated && 
+                    <ShortenComponent shortUrl={ this.state.shortUrl }/>
                 }
             </div>
         )
