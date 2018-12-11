@@ -1,0 +1,17 @@
+.container{
+    &-error {
+        height: 100vh;
+        position: relative;
+
+        &-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-color: $color-bg-lightblue;
+
+            img {
+                height: 100vh;
+            }
+        }
+    }
+}
