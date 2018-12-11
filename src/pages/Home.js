@@ -3,7 +3,8 @@ import logo from '../logo.svg';
 import Generator from '../utility/ShortGenerator'
 import Header from '../components/HeaderComponent'
 import Input from '../components/InputComponent'
-import {addLink} from '../firebase_functions'
+
+import {addItem} from '../firebase_functions'
 
 class Home extends Component {
     state = {
@@ -29,7 +30,7 @@ class Home extends Component {
     }
 
     save = (url, shorturl) => {
-        addLink(url, shorturl)
+        addItem(url, shorturl);
     }
 
     render() {
