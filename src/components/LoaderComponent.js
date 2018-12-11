@@ -27,7 +27,7 @@ export default function LoaderComponent() {
                     </svg>
                 </div>
                 <div className="loading-text mt-4">
-                    <h2>Loading . . .</h2>
+                    <h2>Redirecting . . .</h2>
                 </div>
 
             </div>

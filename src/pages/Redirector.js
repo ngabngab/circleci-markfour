@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Route, Redirect } from "react-router-dom";
 import Error404 from './Error404'
+import Loader from '../components/LoaderComponent'
 
 export default class Redirector extends Component {
     state = {
@@ -17,14 +18,12 @@ export default class Redirector extends Component {
     componentDidMount = () => {
         // TODO get link from firebase
         // firebase.get(this.state.shortLink)
-
-        console.log(this.state.shortLink)
     }
 
     render() {
         return (
             <Route render={
-                props => this.state.loading ? <div>loading</div> : (this.state.found ? <div>Redirecting</div> : <Error404 />)
+                props => this.state.loading ? <Loader /> : (this.state.found ? <div /> : <Error404 />)
             } />
         )
     }
