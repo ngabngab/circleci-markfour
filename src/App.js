@@ -1,13 +1,12 @@
 import React, { Component, Fragment, Suspense } from 'react';
 
-import './App.css';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Home from './pages/Home'
 import Redirector from './pages/Redirector'
 
-const HomePage = () => <Home />
+const HomePage = (props) => <Home {...props} />
 
-import Sample from './components/Sample';
+// import Sample from './components/Sample';
 
 class App extends Component {
   render() {

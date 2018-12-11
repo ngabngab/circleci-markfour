@@ -1,22 +1,29 @@
 import React, { Component } from 'react'
 import logo from '../logo.svg';
 import Generator from '../utility/ShortGenerator'
+import Header from '../components/HeaderComponent'
+import Input from '../components/InputComponent'
 
 class Home extends Component {
     state = {
-        url: ''
+        url: '',
+        generated: false,
+        shortUrl: ''
     }
 
     constructor(props) {
         super(props)
+        console.log(props)
         this._generator = new Generator()
     }
 
     onGenerateBtnClicked = () => {
-        this.save(this.state.url, this._generator.generate())
+        const shortenUrl = this._generator.generate()
+        this.save(this.state.url, shortenUrl)
+        this.setState({url: "", generated: true, shortUrl: `${window.location.origin}/${shortenUrl}`})
     }
 
-    onTextChanged = ({ target: { value } }) => {
+    onInputChanged = (value) => {
         this.setState({ url: value })
     }
 
@@ -25,22 +32,14 @@ class Home extends Component {
     }
 
     render() {
+
         return (
             <div>
-                <header className="App-header">
-                    <img src={logo} className="App-logo" alt="logo" />
-                    <p>
-                        Edit <code>src/App.js</code> and save to reload.
-                    </p>
-                    <a
-                        className="App-link"
-                        href="https://reactjs.org"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        Learn React Bengs
-                    </a>
-                </header>
+                <Header />
+                <Input onChange={this.onInputChanged} value={this.state.url} onSubmit={this.onGenerateBtnClicked} />
+                {
+                    this.state.generated && <code><a href={this.state.shortUrl}>{this.state.shortUrl}</a></code>
+                }
             </div>
         )
     }
