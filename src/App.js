@@ -2,7 +2,7 @@ import React, { Component, Fragment, Suspense } from 'react';
 
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Home from './pages/Home'
-import Redirector from './pages/Redirector'
+import Redirector from './pages/Redirector';
 
 const HomePage = (props) => <Home {...props} />
 
