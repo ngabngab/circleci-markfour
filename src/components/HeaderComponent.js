@@ -19,12 +19,6 @@ export default class HeaderComponent extends Component {
                     <div className="avatar-container mx-4">
                         <img src={ avatar } className="avatar-img"/>
                     </div>
-                    <div className="px-4 align-self-center">
-                        <a href="#">Login</a>
-                    </div>
-                    <div className="px-4 align-self-center">
-                        <a href="#">Sign Up</a>
-                    </div>
                 </div>
             </div>
         </nav>
