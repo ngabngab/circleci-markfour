@@ -7,6 +7,8 @@ import Redirector from './pages/Redirector'
 
 const HomePage = () => <Home />
 
+import Sample from './components/Sample';
+
 class App extends Component {
   render() {
     return (
